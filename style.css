@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo: #0a0e1a;
+    --painel: #111827;
+    --ciano: #00e5ff;
+    --verde: #39ff14;
+    --texto: #d6f6ff;
+}
+
+body {
+    margin: 0;
+    padding: 40px 15px;
+    min-height: 100vh;
+    font-family: "Courier New", Consolas, monospace;
+    color: var(--texto);
+    text-align: center;
+    background-color: var(--fundo);
+    /* grade de circuito no fundo */
+    background-image:
+        linear-gradient(rgba(0, 229, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--ciano);
+    text-shadow: 0 0 10px var(--ciano), 0 0 25px var(--ciano);
+    margin-bottom: 30px;
+}
+
+/* cursor piscando no final do título */
+h1::after {
+    content: "_";
+    animation: piscar 1s steps(1) infinite;
+}
+
+@keyframes piscar {
+    50% { opacity: 0; }
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    background: var(--painel);
+    border: 2px solid var(--ciano);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+}
+
+input {
+    flex: 1 1 200px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--verde);
+    background: #000;
+    border: 1px solid var(--ciano);
+    border-radius: 6px;
+    outline: none;
+}
+
+input::placeholder {
+    color: rgba(214, 246, 255, 0.4);
+}
+
+input:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 12px var(--verde);
+}
+
+button {
+    padding: 12px 25px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--fundo);
+    background: var(--ciano);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background: var(--verde);
+    box-shadow: 0 0 20px var(--verde);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+table {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: var(--painel);
+    border: 2px solid var(--ciano);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+}
+
+th {
+    padding: 14px;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--ciano);
+    background: #000;
+    border-bottom: 2px solid var(--ciano);
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.25);
+}
+
+/* primeira coluna (ID) em verde */
+td:first-child {
+    color: var(--verde);
+    font-weight: bold;
+}
+
+tbody tr {
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+tbody tr:hover {
+    background: rgba(0, 229, 255, 0.15);
+    box-shadow: inset 4px 0 0 var(--verde);
+}
